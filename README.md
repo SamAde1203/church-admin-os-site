@@ -26,7 +26,7 @@ Every push to `main` redeploys automatically.
 ## Before you go live
 
 - [ ] **Checkout links:** open `main.js` and paste your Gumroad, Lemon Squeezy or Paystack links into `CHECKOUT`. Until a link is filled in, its button just scrolls to the pricing section.
-- [ ] **Refund policy:** in `index.html`, replace `[ADD YOUR REFUND POLICY]`.
+- [x] **Refund policy:** 14-day money-back guarantee, no questions asked (hero line, pricing note and FAQ in `index.html`).
 - [ ] **Prices:** in `index.html`, check the `data-gbp` and `data-ngn` values on each `.price`.
 - [ ] **Testimonial:** once you have a real quote, fill it in under `<!-- TESTIMONIAL -->` and delete the `hidden` attribute on that section.
 - [x] **Share image:** `og:image` points at `https://www.churchadminos.com/og-image.png`. If the domain ever changes, update `og:url` and `og:image` in `index.html`.
