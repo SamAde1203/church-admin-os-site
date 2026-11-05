@@ -1,0 +1,43 @@
+# Church Admin OS — landing page
+
+The sales website for **Church Admin OS**, a Notion workspace for pastors, staff and volunteers.
+
+It's a plain static site (HTML, CSS and a little JavaScript). There's no build step, so Vercel serves it as it is.
+
+## Files
+
+| File | What it is |
+|---|---|
+| `index.html` | The whole page |
+| `styles.css` | All the styling |
+| `main.js` | The £/₦ price switch and **your checkout links** |
+| `favicon.svg`, `apple-touch-icon.png` | Browser and phone icons |
+| `og-image.png` | The preview image shown when the link is shared on WhatsApp, Facebook, LinkedIn or X |
+| `vercel.json` | Vercel settings (clean URLs and caching) |
+
+## Deploy to Vercel
+
+1. Go to [vercel.com/new](https://vercel.com/new) and import this GitHub repository.
+2. Leave **Framework Preset** as **Other**. There's no build command and no output directory to set.
+3. Click **Deploy**. You'll get an address like `church-admin-os-site.vercel.app`.
+
+Every push to `main` redeploys automatically.
+
+## Before you go live
+
+- [ ] **Checkout links:** open `main.js` and paste your Gumroad, Lemon Squeezy or Paystack links into `CHECKOUT`. Until a link is filled in, its button just scrolls to the pricing section.
+- [ ] **Refund policy:** in `index.html`, replace `[ADD YOUR REFUND POLICY]`.
+- [ ] **Prices:** in `index.html`, check the `data-gbp` and `data-ngn` values on each `.price`.
+- [ ] **Testimonial:** once you have a real quote, fill it in under `<!-- TESTIMONIAL -->` and delete the `hidden` attribute on that section.
+- [ ] **Share image:** after deploying, change `og:image` in `index.html` to the full address, e.g. `https://churchadminos.com/og-image.png`. Some apps need the full URL to show the preview.
+
+## Adding your domain later
+
+In Vercel, open the project, go to **Settings → Domains**, add your domain, then follow the DNS instructions it shows you.
+
+## Notes
+
+- Visitors in Nigeria (by time zone) see naira prices first, and everyone else sees pounds. The choice is remembered on their device.
+- The page collects no personal data and sets no cookies. If you add analytics or a sign-up form later, add a privacy policy too.
+
+© Apex Digital Africa
