@@ -25,7 +25,7 @@ Every push to `main` redeploys automatically.
 
 ## Before you go live
 
-- [ ] **Checkout links:** open `main.js` and paste your Gumroad, Lemon Squeezy or Paystack links into `CHECKOUT`. Until a link is filled in, its button just scrolls to the pricing section.
+- [x] **Checkout links:** Complete OS uses Lemon Squeezy; Done-for-you opens an email to support. To sell in naira, add Paystack links under `ngn` in `main.js` and the £/₦ switch reappears automatically.
 - [x] **Refund policy:** 14-day money-back guarantee, no questions asked (hero line, pricing note and FAQ in `index.html`).
 - [ ] **Prices:** in `index.html`, check the `data-gbp` and `data-ngn` values on each `.price`.
 - [ ] **Testimonial:** once you have a real quote, fill it in under `<!-- TESTIMONIAL -->` and delete the `hidden` attribute on that section.

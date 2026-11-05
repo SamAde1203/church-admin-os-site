@@ -7,9 +7,9 @@
  */
 const CHECKOUT = {
   gbp: {
-    starter: '',       // e.g. 'https://yourname.gumroad.com/l/church-admin-starter'
-    complete: '',
-    done_for_you: ''   // a booking link (e.g. Calendly) or a contact form
+    starter: '',       // Starter is hidden on the page until its template is ready
+    complete: 'https://church-admin-os.lemonsqueezy.com/checkout/buy/fdef26ea-7846-496e-b700-598f79afb1bb',
+    done_for_you: 'mailto:support@churchadminos.com?subject=Done-for-you%20setup%20enquiry'
   },
   ngn: {
     starter: '',       // e.g. a Paystack payment page
@@ -28,7 +28,11 @@ const CHECKOUT = {
     prices.forEach(p => { p.textContent = p.dataset[cur]; });
     checkoutLinks.forEach(a => {
       const url = CHECKOUT[cur][a.dataset.checkout];
-      if (url) {
+      if (url && url.startsWith('mailto:')) {
+        a.href = url;
+        a.removeAttribute('target');
+        a.removeAttribute('rel');
+      } else if (url) {
         a.href = url;
         a.target = '_blank';
         a.rel = 'noopener';
@@ -43,6 +47,18 @@ const CHECKOUT = {
 
   buttons.forEach(b => b.addEventListener('click', () => setCurrency(b.dataset.cur)));
 
+  const year = document.getElementById('year');
+  if (year) year.textContent = String(new Date().getFullYear());
+
+  // Until a naira checkout link exists, show pounds to everyone and hide the switch.
+  const ngnReady = Object.values(CHECKOUT.ngn).some(Boolean);
+  if (!ngnReady) {
+    const toggle = document.querySelector('.toggle');
+    if (toggle) toggle.hidden = true;
+    setCurrency('gbp');
+    return;
+  }
+
   let initial = 'gbp';
   try {
     const saved = localStorage.getItem('cao-currency');
@@ -50,7 +66,4 @@ const CHECKOUT = {
     else if ((Intl.DateTimeFormat().resolvedOptions().timeZone || '') === 'Africa/Lagos') initial = 'ngn';
   } catch (e) { /* ignore */ }
   setCurrency(initial);
-
-  const year = document.getElementById('year');
-  if (year) year.textContent = String(new Date().getFullYear());
 })();
