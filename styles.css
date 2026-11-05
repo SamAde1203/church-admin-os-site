@@ -183,4 +183,5 @@ details p { padding-bottom: 22px; color: var(--muted); line-height: 1.65; }
 
 /* FOOTER */
 .foot { border-top: 1px solid var(--line-soft); }
-.foot-in { padding-top: 32px; padding-bottom: 32px; font-size: 14px; color: var(--faint); }
+.foot-in { padding-top: 32px; padding-bottom: 32px; font-size: 14px; color: var(--faint); display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px; }
+.foot-in a { color: var(--muted); }
