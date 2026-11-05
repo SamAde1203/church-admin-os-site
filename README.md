@@ -29,9 +29,13 @@ Every push to `main` redeploys automatically.
 - [ ] **Refund policy:** in `index.html`, replace `[ADD YOUR REFUND POLICY]`.
 - [ ] **Prices:** in `index.html`, check the `data-gbp` and `data-ngn` values on each `.price`.
 - [ ] **Testimonial:** once you have a real quote, fill it in under `<!-- TESTIMONIAL -->` and delete the `hidden` attribute on that section.
-- [ ] **Share image:** after deploying, change `og:image` in `index.html` to the full address, e.g. `https://churchadminos.com/og-image.png`. Some apps need the full URL to show the preview.
+- [x] **Share image:** `og:image` points at `https://www.churchadminos.com/og-image.png`. If the domain ever changes, update `og:url` and `og:image` in `index.html`.
 
-## Adding your domain later
+## Domain
+
+Live at **https://www.churchadminos.com** (DNS at Hostinger, hosted on Vercel). Keep the MX records in Hostinger untouched so `support@churchadminos.com` keeps working.
+
+## Changing the domain later
 
 In Vercel, open the project, go to **Settings → Domains**, add your domain, then follow the DNS instructions it shows you.
 
