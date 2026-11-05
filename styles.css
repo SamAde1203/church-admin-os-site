@@ -47,11 +47,14 @@ a:hover { color: var(--gold-hover); }
 .nav nav { display: flex; flex-wrap: wrap; align-items: center; gap: 24px; font-size: 15px; }
 .nav nav a:not(.btn) { color: var(--muted); text-decoration: none; }
 .nav nav a:not(.btn):hover { color: var(--text); }
+.show-sm { display: none; }
+@media (max-width: 720px) { .show-sm { display: inline; } }
 @media (max-width: 720px) {
   .nav { flex-wrap: nowrap; }
   .nav nav { gap: 0; }
   .nav nav a:not(.btn) { display: none; }
-  .brand-name { font-size: 17px; }
+  .brand-name { font-size: 17px; white-space: nowrap; }
+  .hide-sm { display: none; }
   .btn-sm { padding: 10px 16px; font-size: 14px; white-space: nowrap; }
 }
 
