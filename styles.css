@@ -155,7 +155,8 @@ h1 { font-family: var(--display); font-weight: 800; font-size: clamp(44px, 7vw, 
 .toggle { display: inline-flex; background: #E6E9EF; border-radius: 999px; padding: 4px; gap: 4px; margin-bottom: 40px; }
 .toggle button { border: 0; border-radius: 999px; padding: 12px 22px; min-height: 44px; font: inherit; font-weight: 600; font-size: 15px; cursor: pointer; background: transparent; color: #2A3242; }
 .toggle button[aria-pressed="true"] { background: var(--ink); color: var(--text); }
-.plans { display: grid; grid-template-columns: repeat(auto-fit, minmax(290px, 1fr)); gap: 20px; align-items: stretch; text-align: left; }
+[hidden] { display: none !important; }
+.plans { max-width: 860px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(290px, 1fr)); gap: 20px; align-items: stretch; text-align: left; }
 .plan { background: #fff; border: 1px solid var(--light-line); border-radius: 24px; padding: 32px; display: flex; flex-direction: column; gap: 20px; position: relative; }
 .plan h3 { font-weight: 600; font-size: 20px; }
 .plan-sub { color: var(--light-muted); font-size: 15px; margin-top: -14px; }
