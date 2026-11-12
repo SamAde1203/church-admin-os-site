@@ -13,7 +13,9 @@ It's a plain static site (HTML, CSS and a little JavaScript). There's no build s
 | `main.js` | The £/₦ price switch and **your checkout links** |
 | `favicon.svg`, `apple-touch-icon.png` | Browser and phone icons |
 | `og-image.png` | The preview image shown when the link is shared on WhatsApp, Facebook, LinkedIn or X |
-| `vercel.json` | Vercel settings (clean URLs and caching) |
+| `thank-you.html` | Page buyers land on after paying: template link, steps and PDF download (hidden from search engines) |
+| `Church-Admin-OS-Access.pdf` | The access guide buyers download |
+| `vercel.json` | Vercel settings (clean URLs, caching, noindex for the thank-you page and PDF) |
 
 ## Deploy to Vercel
 
@@ -25,7 +27,7 @@ Every push to `main` redeploys automatically.
 
 ## Before you go live
 
-- [x] **Checkout links:** Complete OS uses Lemon Squeezy; Done-for-you opens an email to support. To sell in naira, add Paystack links under `ngn` in `main.js` and the £/₦ switch reappears automatically.
+- [x] **Checkout links:** Complete OS uses a Stripe Payment Link (redirects to `/thank-you` after payment); Lemon Squeezy is kept in `main.js` as a commented fallback until approved. Done-for-you opens an email to support. To sell in naira, add Paystack links under `ngn` in `main.js` and the £/₦ switch reappears automatically.
 - [x] **Refund policy:** 14-day money-back guarantee, no questions asked (hero line, pricing note and FAQ in `index.html`).
 - [ ] **Prices:** in `index.html`, check the `data-gbp` and `data-ngn` values on each `.price`.
 - [ ] **Testimonial:** once you have a real quote, fill it in under `<!-- TESTIMONIAL -->` and delete the `hidden` attribute on that section.

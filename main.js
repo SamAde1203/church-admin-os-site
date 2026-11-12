@@ -8,7 +8,9 @@
 const CHECKOUT = {
   gbp: {
     starter: '',       // Starter is hidden on the page until its template is ready
-    complete: 'https://church-admin-os.lemonsqueezy.com/checkout/buy/fdef26ea-7846-496e-b700-598f79afb1bb',
+    // Stripe Payment Link. After payment Stripe redirects to /thank-you.
+    // Lemon Squeezy (pending approval): https://church-admin-os.lemonsqueezy.com/checkout/buy/fdef26ea-7846-496e-b700-598f79afb1bb
+    complete: 'https://buy.stripe.com/dRm7sK0VB9Fs5lC5Q29EI0x',
     done_for_you: 'mailto:support@churchadminos.com?subject=Done-for-you%20setup%20enquiry'
   },
   ngn: {
