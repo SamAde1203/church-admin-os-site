@@ -8,9 +8,10 @@
 const CHECKOUT = {
   gbp: {
     starter: '',       // Starter is hidden on the page until its template is ready
-    // Stripe Payment Link. After payment Stripe redirects to /thank-you.
+    // Stripe Payment Link (Church Admin OS account, live). After payment Stripe redirects to /thank-you.
+    // Test-mode copy for checking the flow: https://buy.stripe.com/test_28E7sEgUw2wE6Ve6Ih3ks00
     // Lemon Squeezy (pending approval): https://church-admin-os.lemonsqueezy.com/checkout/buy/fdef26ea-7846-496e-b700-598f79afb1bb
-    complete: 'https://buy.stripe.com/dRm7sK0VB9Fs5lC5Q29EI0x',
+    complete: 'https://buy.stripe.com/28E7sEgUw2wE6Ve6Ih3ks00',
     done_for_you: 'mailto:support@churchadminos.com?subject=Done-for-you%20setup%20enquiry'
   },
   ngn: {
