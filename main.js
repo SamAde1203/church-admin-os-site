@@ -15,9 +15,10 @@ const CHECKOUT = {
     done_for_you: 'mailto:support@churchadminos.com?subject=Done-for-you%20setup%20enquiry'
   },
   ngn: {
-    starter: '',       // e.g. a Paystack payment page
-    complete: '',
-    done_for_you: ''
+    starter: '',       // Starter is hidden on the page until its template is ready
+    // Selar (Apex Digital Africa). Short link to share in Nigeria: churchadminos.com/ng
+    complete: 'https://socialmediaacademy.selar.com/748669q34n',
+    done_for_you: 'mailto:support@churchadminos.com?subject=Done-for-you%20setup%20enquiry'
   }
 };
 

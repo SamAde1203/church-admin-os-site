@@ -49,5 +49,17 @@
         }
       ]
     }
+  ],
+  "redirects": [
+    {
+      "source": "/ng",
+      "destination": "https://socialmediaacademy.selar.com/748669q34n",
+      "permanent": false
+    },
+    {
+      "source": "/naira",
+      "destination": "https://socialmediaacademy.selar.com/748669q34n",
+      "permanent": false
+    }
   ]
 }

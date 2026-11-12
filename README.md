@@ -27,7 +27,7 @@ Every push to `main` redeploys automatically.
 
 ## Before you go live
 
-- [x] **Checkout links:** Complete OS uses a Stripe Payment Link (redirects to `/thank-you?session_id={CHECKOUT_SESSION_ID}` after payment); Lemon Squeezy is kept in `main.js` as a commented fallback until approved. Done-for-you opens an email to support. To sell in naira, add Paystack links under `ngn` in `main.js` and the £/₦ switch reappears automatically.
+- [x] **Checkout links:** Complete OS uses a Stripe Payment Link (redirects to `/thank-you?session_id={CHECKOUT_SESSION_ID}` after payment); Lemon Squeezy is kept in `main.js` as a commented fallback until approved. Done-for-you opens an email to support. Naira (₦60,000) goes to the Selar product, set under `ngn` in `main.js`, and `churchadminos.com/ng` (or `/naira`) redirects there (see `redirects` in `vercel.json`). If the Selar link changes, update both.
 - [x] **Refund policy:** 14-day money-back guarantee, no questions asked (hero line, pricing note and FAQ in `index.html`).
 - [ ] **Prices:** in `index.html`, check the `data-gbp` and `data-ngn` values on each `.price`.
 - [ ] **Testimonial:** once you have a real quote, fill it in under `<!-- TESTIMONIAL -->` and delete the `hidden` attribute on that section.
