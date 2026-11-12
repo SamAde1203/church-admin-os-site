@@ -27,6 +27,12 @@
   .ty-note { border-left: 3px solid var(--gold); padding-left: 16px; color: var(--muted); line-height: 1.6; }
   .ty-help { background: var(--surface); border: 1px solid var(--line); border-radius: 16px; padding: 20px; color: var(--muted); line-height: 1.6; }
   .ty-help b { color: var(--text); }
+  .ty-state[hidden] { display: none !important; }
+  .ty-wait { color: var(--muted); display: flex; align-items: center; gap: 12px; }
+  .ty-spin { width: 20px; height: 20px; border-radius: 50%; border: 3px solid var(--line); border-top-color: var(--gold); animation: ty-spin .8s linear infinite; }
+  @keyframes ty-spin { to { transform: rotate(360deg); } }
+  @media (prefers-reduced-motion: reduce) { .ty-spin { animation: none; } }
+  .ty-x { width: 64px; height: 64px; border-radius: 50%; background: #3A1717; display: flex; align-items: center; justify-content: center; }
 </style>
 </head>
 <body>
@@ -41,33 +47,89 @@
 </header>
 
 <main class="ty">
-  <div class="ty-check" aria-hidden="true">
-    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#5FD39A" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+
+  <!-- 1. While we check the payment with Stripe -->
+  <div class="ty-state" data-state="checking">
+    <p class="ty-wait" role="status"><span class="ty-spin" aria-hidden="true"></span>Checking your payment&hellip;</p>
   </div>
 
-  <h1>Thank you.<br><span class="gold">Your template is ready.</span></h1>
-  <p class="lede">Your payment went through and a receipt is on its way to your email. Click below to open Church Admin OS and copy it into your own Notion workspace. It takes less than a minute.</p>
+  <!-- 2. Payment confirmed -->
+  <div class="ty-state" data-state="paid" hidden>
+    <div style="display:flex;flex-direction:column;gap:28px">
+      <div class="ty-check" aria-hidden="true">
+        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#5FD39A" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+      </div>
 
-  <div class="ty-cta">
-    <a class="btn btn-gold btn-lg" href="https://steadfast-sunstone-022.notion.site/Church-Admin-OS-986ff743521f8310ab2901f428845c3a" target="_blank" rel="noopener">Get your template →</a>
-    <a class="btn btn-ghost btn-lg" href="/Church-Admin-OS-Access.pdf" download>Download the access guide (PDF)</a>
+      <h1>Thank you.<br><span class="gold">Your template is ready.</span></h1>
+      <p class="lede">Your payment went through and a receipt is on its way to your email. Click below to open Church Admin OS and copy it into your own Notion workspace. It takes less than a minute.</p>
+
+      <div class="ty-cta">
+        <a class="btn btn-gold btn-lg" id="template-link" href="#" target="_blank" rel="noopener">Get your template &rarr;</a>
+      </div>
+
+      <p class="ty-note"><b>Bookmark this page now.</b> This address is unique to your purchase, so you can come back to your template link any time.</p>
+
+      <ol class="ty-steps">
+        <li><span class="ty-n">1</span><div><h2>Sign in to Notion</h2><p>Open notion.so and sign in, or create a free account. The free plan is enough.</p></div></li>
+        <li><span class="ty-n">2</span><div><h2>Open your template</h2><p>Click the gold "Get your template" button above. It opens in a new tab.</p></div></li>
+        <li><span class="ty-n">3</span><div><h2>Click the Duplicate icon
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#F2B84B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="8" y="8" width="13" height="13" rx="2.5"/><path d="M16 8V5.5A2.5 2.5 0 0 0 13.5 3h-8A2.5 2.5 0 0 0 3 5.5v8A2.5 2.5 0 0 0 5.5 16H8"/></svg></h2>
+          <p>Look at the top right for <b>two overlapping squares</b>, next to the share icon. Click it and choose your workspace. Church Admin OS appears in your sidebar with everything connected.</p></div></li>
+        <li><span class="ty-n">4</span><div><h2>Open the Setup Guide</h2><p>Inside your copy, open "Setup &amp; Data Protection Guide" and follow it. You'll be planning your first Sunday in about 30 minutes.</p></div></li>
+      </ol>
+
+      <div class="ty-help">
+        <b>Need help?</b> Email <a href="mailto:support@churchadminos.com">support@churchadminos.com</a> and we'll reply within 2 working days. Remember you're covered by our <b>14-day money-back guarantee, no questions asked</b>.
+      </div>
+    </div>
   </div>
 
-  <p class="ty-note"><b>Bookmark this page</b> or download the guide, so you can find your template link again later.</p>
-
-  <ol class="ty-steps">
-    <li><span class="ty-n">1</span><div><h2>Sign in to Notion</h2><p>Open notion.so and sign in, or create a free account. The free plan is enough.</p></div></li>
-    <li><span class="ty-n">2</span><div><h2>Open your template</h2><p>Click the gold "Get your template" button above. It opens in a new tab.</p></div></li>
-    <li><span class="ty-n">3</span><div><h2>Click the Duplicate icon
-      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#F2B84B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="8" y="8" width="13" height="13" rx="2.5"/><path d="M16 8V5.5A2.5 2.5 0 0 0 13.5 3h-8A2.5 2.5 0 0 0 3 5.5v8A2.5 2.5 0 0 0 5.5 16H8"/></svg></h2>
-      <p>Look at the top right for <b>two overlapping squares</b>, next to the share icon. Click it and choose your workspace. Church Admin OS appears in your sidebar with everything connected.</p></div></li>
-    <li><span class="ty-n">4</span><div><h2>Open the Setup Guide</h2><p>Inside your copy, open "Setup &amp; Data Protection Guide" and follow it. You'll be planning your first Sunday in about 30 minutes.</p></div></li>
-  </ol>
-
-  <div class="ty-help">
-    <b>Need help?</b> Email <a href="mailto:support@churchadminos.com">support@churchadminos.com</a> and we'll reply within 2 working days. Remember you're covered by our <b>14-day money-back guarantee, no questions asked</b>.
+  <!-- 3. No payment found (or someone typed the address directly) -->
+  <div class="ty-state" data-state="unpaid" hidden>
+    <div style="display:flex;flex-direction:column;gap:24px">
+      <div class="ty-x" aria-hidden="true">
+        <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#FF9B9B" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+      </div>
+      <h1>We couldn't find your payment.</h1>
+      <p class="lede">This page opens automatically after you buy Church Admin OS. If you've just paid and ended up here, don't worry: email <a href="mailto:support@churchadminos.com?subject=Template%20access">support@churchadminos.com</a> with the email address you used, and we'll send your template link.</p>
+      <div class="ty-cta"><a class="btn btn-gold btn-lg" href="/#pricing">Get Church Admin OS &rarr;</a></div>
+    </div>
   </div>
+
+  <!-- 4. Couldn't reach Stripe just now -->
+  <div class="ty-state" data-state="error" hidden>
+    <div style="display:flex;flex-direction:column;gap:24px">
+      <h1>We're having trouble checking your payment.</h1>
+      <p class="lede">Your payment is safe. Please refresh this page in a minute. If it still doesn't work, email <a href="mailto:support@churchadminos.com?subject=Template%20access">support@churchadminos.com</a> and we'll send your template link straight away.</p>
+      <div class="ty-cta"><button type="button" class="btn btn-gold btn-lg" onclick="location.reload()" style="border:0;cursor:pointer;font:inherit;font-weight:700">Try again</button></div>
+    </div>
+  </div>
+
+  <noscript><p class="lede">Please turn on JavaScript to see your template link, or email support@churchadminos.com.</p></noscript>
 </main>
+
+<script>
+(function () {
+  function show(name) {
+    document.querySelectorAll('.ty-state').forEach(function (el) { el.hidden = el.dataset.state !== name; });
+  }
+  var id = new URLSearchParams(location.search).get('session_id');
+  if (!id) { show('unpaid'); return; }
+  fetch('/api/verify?session_id=' + encodeURIComponent(id), { cache: 'no-store' })
+    .then(function (r) { return r.json().then(function (body) { return { status: r.status, body: body }; }); })
+    .then(function (res) {
+      if (res.body && res.body.ok && res.body.templateUrl) {
+        document.getElementById('template-link').href = res.body.templateUrl;
+        show('paid');
+      } else if (res.status === 402 || res.status === 404 || res.status === 400) {
+        show('unpaid');
+      } else {
+        show('error');
+      }
+    })
+    .catch(function () { show('error'); });
+})();
+</script>
 
 <footer class="foot">
   <div class="wrap foot-in">
